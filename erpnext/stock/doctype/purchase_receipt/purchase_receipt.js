@@ -99,15 +99,15 @@ frappe.ui.form.on("Purchase Receipt", {
 			}
 		}
 
-		if (frm.doc.docstatus === 1) {
-			frm.add_custom_button(
-				__("Landed Cost Voucher"),
-				() => {
-					frm.events.make_lcv(frm);
-				},
-				__("Create")
-			);
-		}
+		// if (frm.doc.docstatus === 1) {
+		// 	frm.add_custom_button(
+		// 		__("Landed Cost Voucher"),
+		// 		() => {
+		// 			frm.events.make_lcv(frm);
+		// 		},
+		// 		__("Create")
+		// 	);
+		// }
 
 		frm.events.add_custom_buttons(frm);
 	},
@@ -281,11 +281,11 @@ erpnext.stock.PurchaseReceiptController = class PurchaseReceiptController extend
 						__("Create")
 					);
 				}
-				cur_frm.add_custom_button(
-					__("Retention Stock Entry"),
-					this.make_retention_stock_entry,
-					__("Create")
-				);
+				// cur_frm.add_custom_button(
+				// 	__("Retention Stock Entry"),
+				// 	this.make_retention_stock_entry,
+				// 	__("Create")
+				// );
 
 				cur_frm.page.set_inner_btn_group_as_primary(__("Create"));
 			}

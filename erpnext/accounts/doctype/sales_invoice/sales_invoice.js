@@ -160,7 +160,7 @@ erpnext.accounts.SalesInvoiceController = class SalesInvoiceController extends (
 		if (cint(doc.docstatus == 0) && cur_frm.page.current_view_name !== "pos" && !doc.is_return) {
 			this.frm.cscript.sales_order_btn();
 			this.frm.cscript.delivery_note_btn();
-			this.frm.cscript.quotation_btn();
+			// this.frm.cscript.quotation_btn();
 		}
 
 		this.set_default_print_format();
@@ -257,34 +257,34 @@ erpnext.accounts.SalesInvoiceController = class SalesInvoiceController extends (
 		);
 	}
 
-	quotation_btn() {
-		var me = this;
-		this.$quotation_btn = this.frm.add_custom_button(
-			__("Quotation"),
-			function () {
-				erpnext.utils.map_current_doc({
-					method: "erpnext.selling.doctype.quotation.quotation.make_sales_invoice",
-					source_doctype: "Quotation",
-					target: me.frm,
-					setters: [
-						{
-							fieldtype: "Link",
-							label: __("Customer"),
-							options: "Customer",
-							fieldname: "party_name",
-							default: me.frm.doc.customer,
-						},
-					],
-					get_query_filters: {
-						docstatus: 1,
-						status: ["!=", "Lost"],
-						company: me.frm.doc.company,
-					},
-				});
-			},
-			__("Get Items From")
-		);
-	}
+	// quotation_btn() {
+	// 	var me = this;
+	// 	this.$quotation_btn = this.frm.add_custom_button(
+	// 		__("Quotation"),
+	// 		function () {
+	// 			erpnext.utils.map_current_doc({
+	// 				method: "erpnext.selling.doctype.quotation.quotation.make_sales_invoice",
+	// 				source_doctype: "Quotation",
+	// 				target: me.frm,
+	// 				setters: [
+	// 					{
+	// 						fieldtype: "Link",
+	// 						label: __("Customer"),
+	// 						options: "Customer",
+	// 						fieldname: "party_name",
+	// 						default: me.frm.doc.customer,
+	// 					},
+	// 				],
+	// 				get_query_filters: {
+	// 					docstatus: 1,
+	// 					status: ["!=", "Lost"],
+	// 					company: me.frm.doc.company,
+	// 				},
+	// 			});
+	// 		},
+	// 		__("Get Items From")
+	// 	);
+	// }
 
 	delivery_note_btn() {
 		var me = this;
@@ -993,49 +993,49 @@ frappe.ui.form.on("Sales Invoice", {
 	},
 
 	refresh: function (frm) {
-		if (frm.doc.docstatus === 0 && !frm.doc.is_return) {
-			frm.add_custom_button(__("Fetch Timesheet"), function () {
-				let d = new frappe.ui.Dialog({
-					title: __("Fetch Timesheet"),
-					fields: [
-						{
-							label: __("From"),
-							fieldname: "from_time",
-							fieldtype: "Date",
-							reqd: 1,
-						},
-						{
-							fieldtype: "Column Break",
-							fieldname: "col_break_1",
-						},
-						{
-							label: __("To"),
-							fieldname: "to_time",
-							fieldtype: "Date",
-							reqd: 1,
-						},
-						{
-							label: __("Project"),
-							fieldname: "project",
-							fieldtype: "Link",
-							options: "Project",
-							default: frm.doc.project,
-						},
-					],
-					primary_action: function () {
-						const data = d.get_values();
-						frm.events.add_timesheet_data(frm, {
-							from_time: data.from_time,
-							to_time: data.to_time,
-							project: data.project,
-						});
-						d.hide();
-					},
-					primary_action_label: __("Get Timesheets"),
-				});
-				d.show();
-			});
-		}
+		// if (frm.doc.docstatus === 0 && !frm.doc.is_return) {
+		// 	frm.add_custom_button(__("Fetch Timesheet"), function () {
+		// 		let d = new frappe.ui.Dialog({
+		// 			title: __("Fetch Timesheet"),
+		// 			fields: [
+		// 				{
+		// 					label: __("From"),
+		// 					fieldname: "from_time",
+		// 					fieldtype: "Date",
+		// 					reqd: 1,
+		// 				},
+		// 				{
+		// 					fieldtype: "Column Break",
+		// 					fieldname: "col_break_1",
+		// 				},
+		// 				{
+		// 					label: __("To"),
+		// 					fieldname: "to_time",
+		// 					fieldtype: "Date",
+		// 					reqd: 1,
+		// 				},
+		// 				{
+		// 					label: __("Project"),
+		// 					fieldname: "project",
+		// 					fieldtype: "Link",
+		// 					options: "Project",
+		// 					default: frm.doc.project,
+		// 				},
+		// 			],
+		// 			primary_action: function () {
+		// 				const data = d.get_values();
+		// 				frm.events.add_timesheet_data(frm, {
+		// 					from_time: data.from_time,
+		// 					to_time: data.to_time,
+		// 					project: data.project,
+		// 				});
+		// 				d.hide();
+		// 			},
+		// 			primary_action_label: __("Get Timesheets"),
+		// 		});
+		// 		d.show();
+		// 	});
+		// }
 
 		if (frm.doc.is_debit_note) {
 			frm.set_df_property("return_against", "label", __("Adjustment Against"));

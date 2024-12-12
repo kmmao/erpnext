@@ -986,8 +986,8 @@ class SerialBatchCreation:
 			required_qty = flt(abs(self.actual_qty), precision)
 
 			if required_qty - total_qty > 0:
-				msg = f"For the item {bold(doc.item_code)}, the Available qty {bold(total_qty)} is less than the Required Qty {bold(required_qty)} in the warehouse {bold(doc.warehouse)}. Please add sufficient qty in the warehouse."
-				frappe.throw(msg, title=_("Insufficient Stock"))
+				msg = f"For the item {bold(doc.item_code)}, the Avaliable qty {bold(total_qty)} is less than the Required Qty {bold(required_qty)} in the warehouse {bold(doc.warehouse)}. Please add sufficient qty in the warehouse."
+				frappe.throw(_(msg), title=_("Insufficient Stock"))
 
 	def set_auto_serial_batch_entries_for_outward(self):
 		from erpnext.stock.doctype.batch.batch import get_available_batches

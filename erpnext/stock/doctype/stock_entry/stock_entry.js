@@ -210,7 +210,7 @@ frappe.ui.form.on("Stock Entry", {
 	},
 
 	refresh: function (frm) {
-		frm.trigger("get_items_from_transit_entry");
+		// frm.trigger("get_items_from_transit_entry");
 
 		if (!frm.doc.docstatus) {
 			frm.trigger("validate_purpose_consumption");
@@ -298,24 +298,24 @@ frappe.ui.form.on("Stock Entry", {
 		}
 
 		if (frm.doc.docstatus === 0) {
-			frm.add_custom_button(
-				__("Purchase Invoice"),
-				function () {
-					erpnext.utils.map_current_doc({
-						method: "erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_stock_entry",
-						source_doctype: "Purchase Invoice",
-						target: frm,
-						date_field: "posting_date",
-						setters: {
-							supplier: frm.doc.supplier || undefined,
-						},
-						get_query_filters: {
-							docstatus: 1,
-						},
-					});
-				},
-				__("Get Items From")
-			);
+			// frm.add_custom_button(
+			// 	__("Purchase Invoice"),
+			// 	function () {
+			// 		erpnext.utils.map_current_doc({
+			// 			method: "erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_stock_entry",
+			// 			source_doctype: "Purchase Invoice",
+			// 			target: frm,
+			// 			date_field: "posting_date",
+			// 			setters: {
+			// 				supplier: frm.doc.supplier || undefined,
+			// 			},
+			// 			get_query_filters: {
+			// 				docstatus: 1,
+			// 			},
+			// 		});
+			// 	},
+			// 	__("Get Items From")
+			// );
 
 			frm.add_custom_button(
 				__("Material Request"),
@@ -365,35 +365,35 @@ frappe.ui.form.on("Stock Entry", {
 			);
 		}
 
-		if (frm.doc.docstatus === 0 && frm.doc.purpose == "Material Issue") {
-			frm.add_custom_button(
-				__("Expired Batches"),
-				function () {
-					frappe.call({
-						method: "erpnext.stock.doctype.stock_entry.stock_entry.get_expired_batch_items",
-						callback: function (r) {
-							if (!r.exc && r.message) {
-								frm.set_value("items", []);
-								r.message.forEach(function (element) {
-									let d = frm.add_child("items");
-									d.item_code = element.item;
-									d.s_warehouse = element.warehouse;
-									d.qty = element.qty;
-									d.uom = element.stock_uom;
-									d.conversion_factor = 1;
-									d.batch_no = element.batch_no;
-									d.transfer_qty = element.qty;
-									frm.refresh_fields();
-								});
-							}
-						},
-					});
-				},
-				__("Get Items From")
-			);
-		}
+		// if (frm.doc.docstatus === 0 && frm.doc.purpose == "Material Issue") {
+		// 	frm.add_custom_button(
+		// 		__("Expired Batches"),
+		// 		function () {
+		// 			frappe.call({
+		// 				method: "erpnext.stock.doctype.stock_entry.stock_entry.get_expired_batch_items",
+		// 				callback: function (r) {
+		// 					if (!r.exc && r.message) {
+		// 						frm.set_value("items", []);
+		// 						r.message.forEach(function (element) {
+		// 							let d = frm.add_child("items");
+		// 							d.item_code = element.item;
+		// 							d.s_warehouse = element.warehouse;
+		// 							d.qty = element.qty;
+		// 							d.uom = element.stock_uom;
+		// 							d.conversion_factor = 1;
+		// 							d.batch_no = element.batch_no;
+		// 							d.transfer_qty = element.qty;
+		// 							frm.refresh_fields();
+		// 						});
+		// 					}
+		// 				},
+		// 			});
+		// 		},
+		// 		__("Get Items From")
+		// 	);
+		// }
 
-		frm.events.show_bom_custom_button(frm);
+		// frm.events.show_bom_custom_button(frm);
 
 		if (frm.doc.company) {
 			frm.trigger("toggle_display_account_head");
@@ -441,33 +441,33 @@ frappe.ui.form.on("Stock Entry", {
 		}
 	},
 
-	get_items_from_transit_entry: function (frm) {
-		if (frm.doc.docstatus === 0) {
-			frm.add_custom_button(
-				__("Transit Entry"),
-				function () {
-					erpnext.utils.map_current_doc({
-						method: "erpnext.stock.doctype.stock_entry.stock_entry.make_stock_in_entry",
-						source_doctype: "Stock Entry",
-						target: frm,
-						date_field: "posting_date",
-						read_only_setters: ["stock_entry_type", "purpose", "add_to_transit"],
-						setters: {
-							stock_entry_type: "Material Transfer",
-							purpose: "Material Transfer",
-							add_to_transit: 1,
-						},
-						get_query_filters: {
-							docstatus: 1,
-							purpose: "Material Transfer",
-							add_to_transit: 1,
-						},
-					});
-				},
-				__("Get Items From")
-			);
-		}
-	},
+	// get_items_from_transit_entry: function (frm) {
+	// 	if (frm.doc.docstatus === 0) {
+	// 		frm.add_custom_button(
+	// 			__("Transit Entry"),
+	// 			function () {
+	// 				erpnext.utils.map_current_doc({
+	// 					method: "erpnext.stock.doctype.stock_entry.stock_entry.make_stock_in_entry",
+	// 					source_doctype: "Stock Entry",
+	// 					target: frm,
+	// 					date_field: "posting_date",
+	// 					read_only_setters: ["stock_entry_type", "purpose", "add_to_transit"],
+	// 					setters: {
+	// 						stock_entry_type: "Material Transfer",
+	// 						purpose: "Material Transfer",
+	// 						add_to_transit: 1,
+	// 					},
+	// 					get_query_filters: {
+	// 						docstatus: 1,
+	// 						purpose: "Material Transfer",
+	// 						add_to_transit: 1,
+	// 					},
+	// 				});
+	// 			},
+	// 			__("Get Items From")
+	// 		);
+	// 	}
+	// },
 
 	before_save: function (frm) {
 		frm.doc.items.forEach((item) => {
@@ -477,7 +477,7 @@ frappe.ui.form.on("Stock Entry", {
 
 	stock_entry_type: function (frm) {
 		frm.remove_custom_button("Bill of Materials", "Get Items From");
-		frm.events.show_bom_custom_button(frm);
+		// frm.events.show_bom_custom_button(frm);
 		frm.trigger("add_to_transit");
 
 		frm.fields_dict.items.grid.update_docfield_property(
@@ -612,22 +612,22 @@ frappe.ui.form.on("Stock Entry", {
 		}
 	},
 
-	show_bom_custom_button: function (frm) {
-		if (
-			frm.doc.docstatus === 0 &&
-			["Material Issue", "Material Receipt", "Material Transfer", "Send to Subcontractor"].includes(
-				frm.doc.purpose
-			)
-		) {
-			frm.add_custom_button(
-				__("Bill of Materials"),
-				function () {
-					frm.events.get_items_from_bom(frm);
-				},
-				__("Get Items From")
-			);
-		}
-	},
+	// show_bom_custom_button: function (frm) {
+	// 	if (
+	// 		frm.doc.docstatus === 0 &&
+	// 		["Material Issue", "Material Receipt", "Material Transfer", "Send to Subcontractor"].includes(
+	// 			frm.doc.purpose
+	// 		)
+	// 	) {
+	// 		frm.add_custom_button(
+	// 			__("Bill of Materials"),
+	// 			function () {
+	// 				frm.events.get_items_from_bom(frm);
+	// 			},
+	// 			__("Get Items From")
+	// 		);
+	// 	}
+	// },
 
 	get_items_from_bom: function (frm) {
 		let filters = function () {

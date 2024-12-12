@@ -137,31 +137,31 @@ frappe.ui.form.on("Sales Order", {
 			return;
 		}
 
-		frm.add_custom_button(
-			__("Purchase Order"),
-			() => {
-				erpnext.utils.map_current_doc({
-					method: "erpnext.buying.doctype.purchase_order.purchase_order.make_inter_company_sales_order",
-					source_doctype: "Purchase Order",
-					target: frm,
-					setters: [
-						{
-							label: __("Supplier"),
-							fieldname: "supplier",
-							fieldtype: "Link",
-							options: "Supplier",
-						},
-					],
-					get_query_filters: {
-						company: frm.doc.company,
-						is_internal_supplier: 1,
-						docstatus: 1,
-						status: ["!=", "Completed"],
-					},
-				});
-			},
-			__("Get Items From")
-		);
+		// frm.add_custom_button(
+		// 	__("Purchase Order"),
+		// 	() => {
+		// 		erpnext.utils.map_current_doc({
+		// 			method: "erpnext.buying.doctype.purchase_order.purchase_order.make_inter_company_sales_order",
+		// 			source_doctype: "Purchase Order",
+		// 			target: frm,
+		// 			setters: [
+		// 				{
+		// 					label: "Supplier",
+		// 					fieldname: "supplier",
+		// 					fieldtype: "Link",
+		// 					options: "Supplier",
+		// 				},
+		// 			],
+		// 			get_query_filters: {
+		// 				company: frm.doc.company,
+		// 				is_internal_supplier: 1,
+		// 				docstatus: 1,
+		// 				status: ["!=", "Completed"],
+		// 			},
+		// 		});
+		// 	},
+		// 	__("Get Items From")
+		// );
 	},
 
 	// When multiple companies are set up. in case company name is changed set default company address
@@ -691,21 +691,21 @@ erpnext.selling.SalesOrderController = class SalesOrderController extends erpnex
 							() => this.make_material_request(),
 							__("Create")
 						);
-						this.frm.add_custom_button(
-							__("Request for Raw Materials"),
-							() => this.make_raw_material_request(),
-							__("Create")
-						);
+						// this.frm.add_custom_button(
+						// 	__("Request for Raw Materials"),
+						// 	() => this.make_raw_material_request(),
+						// 	__("Create")
+						// );
 					}
 
 					// Make Purchase Order
-					if (!this.frm.doc.is_internal_customer && frappe.model.can_create("Purchase Order")) {
-						this.frm.add_custom_button(
-							__("Purchase Order"),
-							() => this.make_purchase_order(),
-							__("Create")
-						);
-					}
+					// if (!this.frm.doc.is_internal_customer && frappe.model.can_create("Purchase Order")) {
+					// 	this.frm.add_custom_button(
+					// 		__("Purchase Order"),
+					// 		() => this.make_purchase_order(),
+					// 		__("Create")
+					// 	);
+					// }
 
 					// maintenance
 					if (flt(doc.per_delivered) < 100 && (order_is_maintenance || order_is_a_custom_sale)) {
@@ -726,49 +726,52 @@ erpnext.selling.SalesOrderController = class SalesOrderController extends erpnex
 					}
 
 					// project
-					if (flt(doc.per_delivered) < 100 && frappe.model.can_create("Project")) {
-						this.frm.add_custom_button(__("Project"), () => this.make_project(), __("Create"));
-					}
+					// if (flt(doc.per_delivered, 2) < 100 && frappe.model.can_create("Project")) {
+					// 	this.frm.add_custom_button(__("Project"), () => this.make_project(), __("Create"));
+					// }
 
-					if (
-						doc.docstatus === 1 &&
-						!doc.inter_company_order_reference &&
-						frappe.model.can_create("Purchase Order")
-					) {
-						let me = this;
-						let internal = me.frm.doc.is_internal_customer;
-						if (internal) {
-							let button_label =
-								me.frm.doc.company === me.frm.doc.represents_company
-									? "Internal Purchase Order"
-									: "Inter Company Purchase Order";
+					// if (
+					// 	doc.docstatus === 1 &&
+					// 	!doc.inter_company_order_reference &&
+					// 	frappe.model.can_create("Purchase Order")
+					// ) {
+					// 	let me = this;
+					// 	let internal = me.frm.doc.is_internal_customer;
+					// 	if (internal) {
+					// 		let button_label =
+					// 			me.frm.doc.company === me.frm.doc.represents_company
+					// 				? "Internal Purchase Order"
+					// 				: "Inter Company Purchase Order";
 
-							me.frm.add_custom_button(
-								button_label,
-								function () {
-									me.make_inter_company_order();
-								},
-								__("Create")
-							);
-						}
-					}
+					// 		me.frm.add_custom_button(
+					// 			button_label,
+					// 			function () {
+					// 				me.make_inter_company_order();
+					// 			},
+					// 			__("Create")
+					// 		);
+					// 	}
+					// }
 				}
 				// payment request
-				if (flt(doc.per_billed) < 100 + frappe.boot.sysdefaults.over_billing_allowance) {
-					this.frm.add_custom_button(
-						__("Payment Request"),
-						() => this.make_payment_request(),
-						__("Create")
-					);
+				// if (
+				// 	flt(doc.per_billed, precision("per_billed", doc)) <
+				// 	100 + frappe.boot.sysdefaults.over_billing_allowance
+				// ) {
+				// 	this.frm.add_custom_button(
+				// 		__("Payment Request"),
+				// 		() => this.make_payment_request(),
+				// 		__("Create")
+				// 	);
 
-					if (frappe.model.can_create("Payment Entry")) {
-						this.frm.add_custom_button(
-							__("Payment"),
-							() => this.make_payment_entry(),
-							__("Create")
-						);
-					}
-				}
+				// 	if (frappe.model.can_create("Payment Entry")) {
+				// 		this.frm.add_custom_button(
+				// 			__("Payment"),
+				// 			() => this.make_payment_entry(),
+				// 			__("Create")
+				// 		);
+				// 	}
+				// }
 				this.frm.page.set_inner_btn_group_as_primary(__("Create"));
 			}
 		}
