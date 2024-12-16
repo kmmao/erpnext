@@ -161,14 +161,14 @@ frappe.ui.form.on("Stock Entry", {
 		}
 
 		if (!frm.is_new() && frm.doc.docstatus === 0) {
-			frm.add_custom_button(
-				__("Quality Inspection(s)"),
-				() => {
-					let transaction_controller = new erpnext.TransactionController({ frm: frm });
-					transaction_controller.make_quality_inspection();
-				},
-				__("Create")
-			);
+			// frm.add_custom_button(
+			// 	__("Quality Inspection(s)"),
+			// 	() => {
+			// 		let transaction_controller = new erpnext.TransactionController({ frm: frm });
+			// 		transaction_controller.make_quality_inspection();
+			// 	},
+			// 	__("Create")
+			// );
 			frm.page.set_inner_btn_group_as_primary(__("Create"));
 		}
 

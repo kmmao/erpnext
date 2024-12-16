@@ -629,18 +629,18 @@ erpnext.selling.SalesOrderController = class SalesOrderController extends erpnex
 						}
 					}
 
-					if (
-						(!doc.__onload || !doc.__onload.has_reserved_stock) &&
-						flt(doc.per_picked) < 100 &&
-						flt(doc.per_delivered) < 100 &&
-						frappe.model.can_create("Pick List")
-					) {
-						this.frm.add_custom_button(
-							__("Pick List"),
-							() => this.create_pick_list(),
-							__("Create")
-						);
-					}
+					// if (
+					// 	(!doc.__onload || !doc.__onload.has_reserved_stock) &&
+					// 	flt(doc.per_picked) < 100 &&
+					// 	flt(doc.per_delivered) < 100 &&
+					// 	frappe.model.can_create("Pick List")
+					// ) {
+					// 	this.frm.add_custom_button(
+					// 		__("Pick List"),
+					// 		() => this.create_pick_list(),
+					// 		__("Create")
+					// 	);
+					// }
 
 					const order_is_a_sale = ["Sales", "Shopping Cart"].indexOf(doc.order_type) !== -1;
 					const order_is_maintenance = ["Maintenance"].indexOf(doc.order_type) !== -1;
@@ -662,13 +662,13 @@ erpnext.selling.SalesOrderController = class SalesOrderController extends erpnex
 							);
 						}
 
-						if (frappe.model.can_create("Work Order")) {
-							this.frm.add_custom_button(
-								__("Work Order"),
-								() => this.make_work_order(),
-								__("Create")
-							);
-						}
+						// if (frappe.model.can_create("Work Order")) {
+						// 	this.frm.add_custom_button(
+						// 		__("Work Order"),
+						// 		() => this.make_work_order(),
+						// 		__("Create")
+						// 	);
+						// }
 					}
 
 					// sales invoice
@@ -776,41 +776,41 @@ erpnext.selling.SalesOrderController = class SalesOrderController extends erpnex
 			}
 		}
 
-		if (this.frm.doc.docstatus === 0 && frappe.model.can_read("Quotation")) {
-			this.frm.add_custom_button(
-				__("Quotation"),
-				function () {
-					let d = erpnext.utils.map_current_doc({
-						method: "erpnext.selling.doctype.quotation.quotation.make_sales_order",
-						source_doctype: "Quotation",
-						target: me.frm,
-						setters: [
-							{
-								label: __("Customer"),
-								fieldname: "party_name",
-								fieldtype: "Link",
-								options: "Customer",
-								default: me.frm.doc.customer || undefined,
-							},
-						],
-						get_query_filters: {
-							company: me.frm.doc.company,
-							docstatus: 1,
-							status: ["!=", "Lost"],
-						},
-					});
+		// if (this.frm.doc.docstatus === 0 && frappe.model.can_read("Quotation")) {
+		// 	this.frm.add_custom_button(
+		// 		__("Quotation"),
+		// 		function () {
+		// 			let d = erpnext.utils.map_current_doc({
+		// 				method: "erpnext.selling.doctype.quotation.quotation.make_sales_order",
+		// 				source_doctype: "Quotation",
+		// 				target: me.frm,
+		// 				setters: [
+		// 					{
+		// 						label: __("Customer"),
+		// 						fieldname: "party_name",
+		// 						fieldtype: "Link",
+		// 						options: "Customer",
+		// 						default: me.frm.doc.customer || undefined,
+		// 					},
+		// 				],
+		// 				get_query_filters: {
+		// 					company: me.frm.doc.company,
+		// 					docstatus: 1,
+		// 					status: ["!=", "Lost"],
+		// 				},
+		// 			});
 
-					setTimeout(() => {
-						d.$parent.append(`
-							<span class='small text-muted'>
-								${__("Note: Please create Sales Orders from individual Quotations to select from among Alternative Items.")}
-							</span>
-					`);
-					}, 200);
-				},
-				__("Get Items From")
-			);
-		}
+		// 			setTimeout(() => {
+		// 				d.$parent.append(`
+		// 					<span class='small text-muted'>
+		// 						${__("Note: Please create Sales Orders from individual Quotations to select from among Alternative Items.")}
+		// 					</span>
+		// 			`);
+		// 			}, 200);
+		// 		},
+		// 		__("Get Items From")
+		// 	);
+		// }
 
 		this.order_type(doc);
 	}

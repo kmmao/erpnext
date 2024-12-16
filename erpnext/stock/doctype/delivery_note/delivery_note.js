@@ -189,29 +189,29 @@ erpnext.stock.DeliveryNoteController = class DeliveryNoteController extends (
 		}
 
 		if (!doc.is_return && doc.status != "Closed") {
-			if (doc.docstatus == 1 && frappe.model.can_create("Shipment")) {
-				this.frm.add_custom_button(
-					__("Shipment"),
-					function () {
-						me.make_shipment();
-					},
-					__("Create")
-				);
-			}
+			// if (doc.docstatus == 1 && frappe.model.can_create("Shipment")) {
+			// 	this.frm.add_custom_button(
+			// 		__("Shipment"),
+			// 		function () {
+			// 			me.make_shipment();
+			// 		},
+			// 		__("Create")
+			// 	);
+			// }
 
-			if (
-				flt(doc.per_installed, 2) < 100 &&
-				doc.docstatus == 1 &&
-				frappe.model.can_create("Installation Note")
-			) {
-				this.frm.add_custom_button(
-					__("Installation Note"),
-					function () {
-						me.make_installation_note();
-					},
-					__("Create")
-				);
-			}
+			// if (
+			// 	flt(doc.per_installed, 2) < 100 &&
+			// 	doc.docstatus == 1 &&
+			// 	frappe.model.can_create("Installation Note")
+			// ) {
+			// 	this.frm.add_custom_button(
+			// 		__("Installation Note"),
+			// 		function () {
+			// 			me.make_installation_note();
+			// 		},
+			// 		__("Create")
+			// 	);
+			// }
 
 			if (doc.docstatus == 1 && this.frm.has_perm("create")) {
 				this.frm.add_custom_button(
@@ -223,34 +223,34 @@ erpnext.stock.DeliveryNoteController = class DeliveryNoteController extends (
 				);
 			}
 
-			if (doc.docstatus == 1 && doc.status != "Completed" && frappe.model.can_create("Delivery Trip")) {
-				this.frm.add_custom_button(
-					__("Delivery Trip"),
-					function () {
-						me.make_delivery_trip();
-					},
-					__("Create")
-				);
-			}
+			// if (doc.docstatus == 1 && doc.status != "Completed" && frappe.model.can_create("Delivery Trip")) {
+			// 	this.frm.add_custom_button(
+			// 		__("Delivery Trip"),
+			// 		function () {
+			// 			me.make_delivery_trip();
+			// 		},
+			// 		__("Create")
+			// 	);
+			// }
 
-			if (
-				doc.docstatus == 0 &&
-				!doc.__islocal &&
-				doc.__onload &&
-				doc.__onload.has_unpacked_items &&
-				frappe.model.can_create("Packing Slip")
-			) {
-				this.frm.add_custom_button(
-					__("Packing Slip"),
-					function () {
-						frappe.model.open_mapped_doc({
-							method: "erpnext.stock.doctype.delivery_note.delivery_note.make_packing_slip",
-							frm: me.frm,
-						});
-					},
-					__("Create")
-				);
-			}
+			// if (
+			// 	doc.docstatus == 0 &&
+			// 	!doc.__islocal &&
+			// 	doc.__onload &&
+			// 	doc.__onload.has_unpacked_items &&
+			// 	frappe.model.can_create("Packing Slip")
+			// ) {
+			// 	this.frm.add_custom_button(
+			// 		__("Packing Slip"),
+			// 		function () {
+			// 			frappe.model.open_mapped_doc({
+			// 				method: "erpnext.stock.doctype.delivery_note.delivery_note.make_packing_slip",
+			// 				frm: me.frm,
+			// 			});
+			// 		},
+			// 		__("Create")
+			// 	);
+			// }
 
 			if (!doc.__islocal && doc.docstatus == 1) {
 				this.frm.page.set_inner_btn_group_as_primary(__("Create"));
