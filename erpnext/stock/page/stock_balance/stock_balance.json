@@ -1,22 +1,26 @@
 {
- "content": null, 
- "creation": "2016-04-21 04:59:00.141546", 
- "docstatus": 0, 
- "doctype": "Page", 
- "idx": 0, 
- "modified": "2016-07-14 06:39:09.096256", 
- "modified_by": "Administrator", 
- "module": "Stock", 
- "name": "stock-balance", 
- "owner": "Administrator", 
- "page_name": "stock-balance", 
+ "content": null,
+ "creation": "2016-04-21 04:59:00.141546",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 1,
+ "modified": "2024-12-16 11:22:49.326149",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "stock-balance",
+ "owner": "Administrator",
+ "page_name": "stock-balance",
  "roles": [
   {
    "role": "Stock User"
+  },
+  {
+   "role": "\u8d85\u7ea7\u7ba1\u7406\u5458"
   }
- ], 
- "script": null, 
- "standard": "Yes", 
- "style": null, 
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
  "title": "Stock Summary"
 }
