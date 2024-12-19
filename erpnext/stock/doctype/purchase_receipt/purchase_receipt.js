@@ -207,27 +207,27 @@ erpnext.stock.PurchaseReceiptController = class PurchaseReceiptController extend
 			//removed for temporary
 			this.show_general_ledger();
 
-			this.frm.add_custom_button(
-				__("Asset"),
-				function () {
-					frappe.route_options = {
-						purchase_receipt: me.frm.doc.name,
-					};
-					frappe.set_route("List", "Asset");
-				},
-				__("View")
-			);
+			// this.frm.add_custom_button(
+			// 	__("Asset"),
+			// 	function () {
+			// 		frappe.route_options = {
+			// 			purchase_receipt: me.frm.doc.name,
+			// 		};
+			// 		frappe.set_route("List", "Asset");
+			// 	},
+			// 	__("View")
+			// );
 
-			this.frm.add_custom_button(
-				__("Asset Movement"),
-				function () {
-					frappe.route_options = {
-						reference_name: me.frm.doc.name,
-					};
-					frappe.set_route("List", "Asset Movement");
-				},
-				__("View")
-			);
+			// this.frm.add_custom_button(
+			// 	__("Asset Movement"),
+			// 	function () {
+			// 		frappe.route_options = {
+			// 			reference_name: me.frm.doc.name,
+			// 		};
+			// 		frappe.set_route("List", "Asset Movement");
+			// 	},
+			// 	__("View")
+			// );
 		}
 
 		if (!this.frm.doc.is_return && this.frm.doc.status != "Closed") {
