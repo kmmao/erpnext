@@ -760,9 +760,23 @@ class update_entries_after:
 	def validate_previous_sle_qty(self, sle):
 		previous_sle = self.data[sle.warehouse].previous_sle
 		if previous_sle and previous_sle.get("qty_after_transaction") < 0 and sle.get("actual_qty") > 0:
+			# frappe.msgprint(
+			# 	_(
+			# 		"The stock for the item {0} in the {1} warehouse was negative on the {2}. You should create a positive entry {3} before the date {4} and time {5} to post the correct valuation rate. For more details, please read the <a href='https://docs.erpnext.com/docs/user/manual/en/stock-adjustment-cogs-with-negative-stock'>documentation<a>."
+			# 	).format(
+			# 		bold(sle.item_code),
+			# 		bold(sle.warehouse),
+			# 		bold(format_date(previous_sle.posting_date)),
+			# 		sle.voucher_no,
+			# 		bold(format_date(previous_sle.posting_date)),
+			# 		bold(previous_sle.posting_time),
+			# 	),
+			# 	title=_("Warning on Negative Stock"),
+			# 	indicator="blue",
+			# )
 			frappe.msgprint(
 				_(
-					"The stock for the item {0} in the {1} warehouse was negative on the {2}. You should create a positive entry {3} before the date {4} and time {5} to post the correct valuation rate. For more details, please read the <a href='https://docs.erpnext.com/docs/user/manual/en/stock-adjustment-cogs-with-negative-stock'>documentation<a>."
+					"The stock for the item {0} in the {1} warehouse was negative on the {2}. You should create a positive entry {3} before the date {4} and time {5} to post the correct valuation rate. "
 				).format(
 					bold(sle.item_code),
 					bold(sle.warehouse),
