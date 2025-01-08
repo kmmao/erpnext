@@ -556,7 +556,8 @@ def get_result_as_list(data, filters):
 
 		balance = get_balance(d, balance, "debit", "credit")
 		d["balance"] = balance
-
+		if d.get("voucher_type"):
+			d["voucher_type"] = _(d["voucher_type"])
 		d["account_currency"] = filters.account_currency
 
 	return data
@@ -653,12 +654,12 @@ def get_columns(filters):
 
 	columns += [
 		{"label": _("Voucher Type"), "fieldname": "voucher_type", "width": 120},
-		{
-			"label": _("Voucher Subtype"),
-			"fieldname": "voucher_subtype",
-			"fieldtype": "Data",
-			"width": 180,
-		},
+		# {
+		# 	"label": _("Voucher Subtype"),
+		# 	"fieldname": "voucher_subtype",
+		# 	"fieldtype": "Data",
+		# 	"width": 180,
+		# },
 		{
 			"label": _("Voucher No"),
 			"fieldname": "voucher_no",
@@ -667,7 +668,7 @@ def get_columns(filters):
 			"width": 180,
 		},
 		{"label": _("Against Account"), "fieldname": "against", "width": 120},
-		{"label": _("Party Type"), "fieldname": "party_type", "width": 100},
+		# {"label": _("Party Type"), "fieldname": "party_type", "width": 100},
 		{"label": _("Party"), "fieldname": "party", "width": 100},
 		{"label": _("Project"), "options": "Project", "fieldname": "project", "width": 100},
 	]
@@ -681,19 +682,19 @@ def get_columns(filters):
 			{"label": _("Cost Center"), "options": "Cost Center", "fieldname": "cost_center", "width": 100}
 		)
 
-	columns.extend(
-		[
-			{"label": _("Against Voucher Type"), "fieldname": "against_voucher_type", "width": 100},
-			{
-				"label": _("Against Voucher"),
-				"fieldname": "against_voucher",
-				"fieldtype": "Dynamic Link",
-				"options": "against_voucher_type",
-				"width": 100,
-			},
-			{"label": _("Supplier Invoice No"), "fieldname": "bill_no", "fieldtype": "Data", "width": 100},
-		]
-	)
+	# columns.extend(
+	# 	[
+	# 		{"label": _("Against Voucher Type"), "fieldname": "against_voucher_type", "width": 100},
+	# 		{
+	# 			"label": _("Against Voucher"),
+	# 			"fieldname": "against_voucher",
+	# 			"fieldtype": "Dynamic Link",
+	# 			"options": "against_voucher_type",
+	# 			"width": 100,
+	# 		},
+	# 		{"label": _("Supplier Invoice No"), "fieldname": "bill_no", "fieldtype": "Data", "width": 100},
+	# 	]
+	# )
 
 	if filters.get("show_remarks"):
 		columns.extend([{"label": _("Remarks"), "fieldname": "remarks", "width": 400}])

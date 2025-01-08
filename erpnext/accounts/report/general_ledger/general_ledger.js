@@ -52,23 +52,23 @@ frappe.query_reports["General Ledger"] = {
 				frappe.query_report.set_filter_value("group_by", "Group by Voucher (Consolidated)");
 			},
 		},
-		{
-			fieldname: "against_voucher_no",
-			label: __("Against Voucher No"),
-			fieldtype: "Data",
-		},
+		// {
+		// 	fieldname: "against_voucher_no",
+		// 	label: __("Against Voucher No"),
+		// 	fieldtype: "Data",
+		// },
 		{
 			fieldtype: "Break",
 		},
-		{
-			fieldname: "party_type",
-			label: __("Party Type"),
-			fieldtype: "Autocomplete",
-			options: Object.keys(frappe.boot.party_account_types),
-			on_change: function () {
-				frappe.query_report.set_filter_value("party", "");
-			},
-		},
+		// {
+		// 	fieldname: "party_type",
+		// 	label: __("Party Type"),
+		// 	fieldtype: "Autocomplete",
+		// 	options: Object.keys(frappe.boot.party_account_types),
+		// 	on_change: function () {
+		// 		frappe.query_report.set_filter_value("party", "");
+		// 	},
+		// },
 		{
 			fieldname: "party",
 			label: __("Party"),
@@ -141,12 +141,12 @@ frappe.query_reports["General Ledger"] = {
 			fieldtype: "Data",
 			hidden: 1,
 		},
-		{
-			fieldname: "presentation_currency",
-			label: __("Currency"),
-			fieldtype: "Select",
-			options: erpnext.get_presentation_currency_list(),
-		},
+		// {
+		// 	fieldname: "presentation_currency",
+		// 	label: __("Currency"),
+		// 	fieldtype: "Select",
+		// 	options: erpnext.get_presentation_currency_list(),
+		// },
 		{
 			fieldname: "cost_center",
 			label: __("Cost Center"),
@@ -173,47 +173,47 @@ frappe.query_reports["General Ledger"] = {
 			fieldtype: "Check",
 			default: 1,
 		},
-		{
-			fieldname: "show_opening_entries",
-			label: __("Show Opening Entries"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "include_default_book_entries",
-			label: __("Include Default FB Entries"),
-			fieldtype: "Check",
-			default: 1,
-		},
-		{
-			fieldname: "show_cancelled_entries",
-			label: __("Show Cancelled Entries"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "show_net_values_in_party_account",
-			label: __("Show Net Values in Party Account"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "add_values_in_transaction_currency",
-			label: __("Add Columns in Transaction Currency"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "show_remarks",
-			label: __("Show Remarks"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "ignore_err",
-			label: __("Ignore Exchange Rate Revaluation Journals"),
-			fieldtype: "Check",
-		},
-		{
-			fieldname: "ignore_cr_dr_notes",
-			label: __("Ignore System Generated Credit / Debit Notes"),
-			fieldtype: "Check",
-		},
+		// {
+		// 	fieldname: "show_opening_entries",
+		// 	label: __("Show Opening Entries"),
+		// 	fieldtype: "Check",
+		// },
+		// {
+		// 	fieldname: "include_default_book_entries",
+		// 	label: __("Include Default FB Entries"),
+		// 	fieldtype: "Check",
+		// 	default: 1,
+		// },
+		// {
+		// 	fieldname: "show_cancelled_entries",
+		// 	label: __("Show Cancelled Entries"),
+		// 	fieldtype: "Check",
+		// },
+		// {
+		// 	fieldname: "show_net_values_in_party_account",
+		// 	label: __("Show Net Values in Party Account"),
+		// 	fieldtype: "Check",
+		// },
+		// {
+		// 	fieldname: "add_values_in_transaction_currency",
+		// 	label: __("Add Columns in Transaction Currency"),
+		// 	fieldtype: "Check",
+		// },
+		// {
+		// 	fieldname: "show_remarks",
+		// 	label: __("Show Remarks"),
+		// 	fieldtype: "Check",
+		// },
+		// {
+		// 	fieldname: "ignore_err",
+		// 	label: __("Ignore Exchange Rate Revaluation Journals"),
+		// 	fieldtype: "Check",
+		// },
+		// {
+		// 	fieldname: "ignore_cr_dr_notes",
+		// 	label: __("Ignore System Generated Credit / Debit Notes"),
+		// 	fieldtype: "Check",
+		// },
 	],
 };
 
