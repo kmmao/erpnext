@@ -6,11 +6,11 @@
  "docstatus": 0,
  "doctype": "Report",
  "filters": [],
- "idx": 4,
+ "idx": 7,
  "is_standard": "Yes",
  "json": "{\"add_total_row\": 0, \"sort_by\": \"Serial No.name\", \"sort_order\": \"desc\", \"sort_by_next\": null, \"filters\": [], \"sort_order_next\": \"desc\", \"columns\": [[\"name\", \"Serial No\"], [\"item_code\", \"Serial No\"], [\"warehouse\", \"Serial No\"], [\"item_name\", \"Serial No\"], [\"description\", \"Serial No\"], [\"item_group\", \"Serial No\"], [\"brand\", \"Serial No\"],[\"purchase_document_no\", \"Serial No\"]]}",
  "letterhead": null,
- "modified": "2024-09-26 13:10:52.693648",
+ "modified": "2025-03-18 18:57:15.403990",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Serial No Status",
@@ -21,13 +21,8 @@
  "report_type": "Report Builder",
  "roles": [
   {
-   "role": "Item Manager"
-  },
-  {
-   "role": "Stock Manager"
-  },
-  {
-   "role": "Stock User"
+   "role": "System Manager"
   }
- ]
+ ],
+ "timeout": 0
 }

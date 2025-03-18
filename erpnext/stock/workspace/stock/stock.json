@@ -5,7 +5,7 @@
    "label": "Warehouse wise Stock Value"
   }
  ],
- "content": "[{\"id\":\"WKeeHLcyXI\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Stock Value\",\"col\":4}},{\"id\":\"6nVoOHuy5w\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Warehouses\",\"col\":4}},{\"id\":\"OUex5VED7d\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Active Items\",\"col\":4}},{\"id\":\"A3svBa974t\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Warehouse wise Stock Value\",\"col\":12}},{\"id\":\"wwAoBx30p3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LkqrpJHM9X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>\u5feb\u901f\u8bbf\u95ee</b></span>\",\"col\":12}},{\"id\":\"OR8PYiYspy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"KP1A22WjDl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"0EYKOrx6U1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"cqotiphmhZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u91c7\u8d2d\u6536\u8d27\u5355\",\"col\":3}},{\"id\":\"Xhjqnm-JxZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u9500\u552e\u51fa\u8d27\",\"col\":3}},{\"id\":\"yxCx6Tay4Z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}},{\"id\":\"o3sdEnNy34\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Balance\",\"col\":3}},{\"id\":\"9AmAh9LnPI\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3SmmwBbOER\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">\u4e3b\u6570\u636e\u548c\u62a5\u8868</span>\",\"col\":12}},{\"id\":\"OAGNH9njt7\",\"type\":\"card\",\"data\":{\"card_name\":\"Items Catalogue\",\"col\":4}},{\"id\":\"jF9eKz0qr0\",\"type\":\"card\",\"data\":{\"card_name\":\"\u5e93\u5b58\u4ea4\u6613\",\"col\":4}},{\"id\":\"tyTnQo-MIS\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock Reports\",\"col\":4}},{\"id\":\"dJaJw6YNPU\",\"type\":\"card\",\"data\":{\"card_name\":\"\u8bbe\u7f6e\",\"col\":4}},{\"id\":\"rQf5vK4N_T\",\"type\":\"card\",\"data\":{\"card_name\":\"Serial No and Batch\",\"col\":4}},{\"id\":\"7oM7hFL4v8\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"ve3L6ZifkB\",\"type\":\"card\",\"data\":{\"card_name\":\"Key Reports\",\"col\":4}},{\"id\":\"8Kfvu3umw7\",\"type\":\"card\",\"data\":{\"card_name\":\"Other Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"WKeeHLcyXI\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Stock Value\",\"col\":4}},{\"id\":\"6nVoOHuy5w\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Warehouses\",\"col\":4}},{\"id\":\"OUex5VED7d\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Active Items\",\"col\":4}},{\"id\":\"A3svBa974t\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Warehouse wise Stock Value\",\"col\":12}},{\"id\":\"wwAoBx30p3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LkqrpJHM9X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>\u5feb\u901f\u8bbf\u95ee</b></span>\",\"col\":12}},{\"id\":\"OR8PYiYspy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"KP1A22WjDl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Request\",\"col\":3}},{\"id\":\"0EYKOrx6U1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}},{\"id\":\"cqotiphmhZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u91c7\u8d2d\u6536\u8d27\u5355\",\"col\":3}},{\"id\":\"Xhjqnm-JxZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u9500\u552e\u51fa\u8d27\",\"col\":3}},{\"id\":\"yxCx6Tay4Z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Ledger\",\"col\":3}},{\"id\":\"o3sdEnNy34\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Balance\",\"col\":3}},{\"id\":\"9AmAh9LnPI\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3SmmwBbOER\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">\u4e3b\u6570\u636e\u548c\u62a5\u8868</span>\",\"col\":12}},{\"id\":\"OAGNH9njt7\",\"type\":\"card\",\"data\":{\"card_name\":\"Items Catalogue\",\"col\":4}},{\"id\":\"jF9eKz0qr0\",\"type\":\"card\",\"data\":{\"card_name\":\"\u5e93\u5b58\u4ea4\u6613\",\"col\":4}},{\"id\":\"tyTnQo-MIS\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock Reports\",\"col\":4}},{\"id\":\"dJaJw6YNPU\",\"type\":\"card\",\"data\":{\"card_name\":\"\u8bbe\u7f6e\",\"col\":4}},{\"id\":\"rQf5vK4N_T\",\"type\":\"card\",\"data\":{\"card_name\":\"\u6279\u6b21\",\"col\":4}},{\"id\":\"7oM7hFL4v8\",\"type\":\"card\",\"data\":{\"card_name\":\"Tools\",\"col\":4}},{\"id\":\"ve3L6ZifkB\",\"type\":\"card\",\"data\":{\"card_name\":\"Key Reports\",\"col\":4}},{\"id\":\"8Kfvu3umw7\",\"type\":\"card\",\"data\":{\"card_name\":\"Other Reports\",\"col\":4}}]",
  "creation": "2020-03-02 15:43:10.096528",
  "custom_blocks": [],
  "docstatus": 0,
@@ -269,14 +269,6 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Serial No and Batch",
-   "link_count": 0,
-   "onboard": 0,
-   "type": "Card Break"
   },
   {
    "dependencies": "Item",
@@ -954,9 +946,76 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u6279\u6b21",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "Item",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u6279\u6b21",
+   "link_count": 0,
+   "link_to": "Batch",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Item",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u5b89\u88c5\u901a\u77e5\u5355",
+   "link_count": 0,
+   "link_to": "Installation Note",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "Serial No",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u5e8f\u5217\u53f7/\u5e74\u5ea6\u4fdd\u517b\u5408\u540c\u8fc7\u671f",
+   "link_count": 0,
+   "link_to": "Serial No Service Contract Expiry",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Serial No",
+   "type": "Link"
+  },
+  {
+   "dependencies": "Serial No",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u5e8f\u5217\u53f7\u72b6\u6001",
+   "link_count": 0,
+   "link_to": "Serial No Status",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Serial No",
+   "type": "Link"
+  },
+  {
+   "dependencies": "Serial No",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u5e8f\u5217\u53f7/\u4fdd\u4fee\u5230\u671f",
+   "link_count": 0,
+   "link_to": "Serial No Warranty Expiry",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Serial No",
+   "type": "Link"
   }
  ],
- "modified": "2024-12-20 10:35:16.681330",
+ "modified": "2025-03-18 19:54:51.285829",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock",
@@ -980,7 +1039,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 12.0,
+ "sequence_id": 11.0,
  "shortcuts": [
   {
    "color": "Green",
